@@ -1,0 +1,19 @@
+{
+    "name": "com.klazapp.pooling.runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:ccfe4693463b3458da638186a0e616ca",
+        "GUID:d8b09bda710bd4d9f8085dbdd420bca3",
+        "GUID:d161eadcbabe3458780e7d4497e0f22a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
