@@ -1,11 +1,40 @@
-# Unity Custom Logger Utility
+# Pooling Utility for Unity
 
-This tool represents a solution for centralized logging management across an entire software project. It enhances the script compilation process to integrate log statements seamlessly, ensuring a consistent and standardized approach to logging. Key features include:
+## Introduction
+The `Pooling` utility, part of the `com.Klazapp.Utility` namespace, is designed for Unity projects to manage the instantiation and reuse of game objects, primarily to improve performance in scenarios where frequent creation and destruction of objects are needed. The primary goals of object pooling are efficiency, optimization, and reducing the overhead associated with object creation and destruction.
 
-1. **Automated Log Integration:** The tool intelligently injects log statements at critical junctures in the codebase during the compilation phase, streamlining the logging process.
+## Features
+- The ability to pre-allocate a pool of objects during initialization.
+- Minimization of the performance cost associated with instantiating new objects.
+- Minimization of memory fragmentation and efficient use of resources.
 
-2. **Configurable Log Severity Levels:** It offers granular control over log verbosity, allowing developers to adjust logging levels (such as debug, info, warning, and error) globally or for specific modules, tailoring the logging output to the needs of different environments and stages of development.
+## Dependencies
+To use `Pooling`, certain dependencies are required. Ensure these are included in your Unity project.
+- **Unity Version**: Minimum Unity 2020.3 LTS.
+- **Repository**: [LogMessage Unity Logger](https://github.com/klazapp/Unity-Logger-Public.git)
+- **Repository**: [LogMessage Unity Singleton](https://github.com/klazapp/Unity-Singleton-Public.git)
+- **Repository**: [LogMessage Unity Inspector](https://github.com/klazapp/Unity-Inspector-Public.git)
+- Unity Mathematics dll
 
-3. **Uniform Log Formatting:** By enforcing a uniform format for all log entries, the tool guarantees consistency in logging outputs. This format can encompass various elements such as timestamps, severity indicators, and contextual data, thereby facilitating easier log analysis and troubleshooting.
+## Compatibility
+| Compatibility        | URP | BRP | HDRP |
+|----------------------|-----|-----|------|
+| Compatible           | ✔️  | ✔️  | ✔️   |
 
-Overall, this tool is designed to optimize logging practices, improve code maintainability, and enhance the monitoring capabilities within a software development environment."
+## Installation
+1. Open the Unity Package Manager (`Window` > `Package Manager`).
+2. Click `+`, select `Add package from git URL...`, and enter `https://github.com/klazapp/Unity-Logger-Public.git`.
+3. Click `+`, select `Add package from git URL...`, and enter `https://github.com/klazapp/Unity-Singleton-Public.git`.
+4. Click `+`, select `Add package from git URL...`, and enter `https://github.com/klazapp/Unity-Inspector-Public.git`.
+5. Unity will download and make the package available in your project.
+
+## Usage
+```csharp
+Write Something here
+```
+
+## To-Do List (Future Features)
+- 
+
+## License
+This utility is released under the [MIT License](LICENSE).
