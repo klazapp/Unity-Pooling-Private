@@ -29,9 +29,14 @@ To use `Pooling`, certain dependencies are required. Ensure these are included i
 5. Unity will download and make the package available in your project.
 
 ## Usage
-```csharp
-Write Something here
-```
+
+To use the `ObjectPooler` script, attach it to any GameObject in the Unity hierarchy. Once attached, the script will automatically draw gizmos around the elements in the Unity Editor, reflecting the current raycast padding settings. These gizmos are only visible in the Unity Editor and do not affect the game's runtime behavior.
+
+## To-Do List (Future Features)
+
+- [ ] Support for non-rectangular UI components.
+- [ ] Runtime visualization options for debugging purposes.
+
 
 ## To-Do List (Future Features)
 - 
