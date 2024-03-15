@@ -5,22 +5,26 @@ using UnityEngine;
 
 namespace com.Klazapp.Utility
 {
-    [TodoHeader("Fix issue when not enough pools are generated, it should continue to generate extra pools", order = 0)]
-    [ScriptHeader("ObjectPooler is a centralized multi object pooling system. It provides a singular end point for all pooling related functions", order = 1)]
-    public class ObjectPooler : MonoSingletonGlobal<ObjectPooler>
+    //TODO: Fix issue when not enough pools are generated, it should continue to generate extra pools
+    public class ObjectPooler : MonoBehaviour
     {
-        [ReadOnly]
-        [Note("Pooling Components")] 
+        #region Variables
         [SerializeField]
+        [Tooltip("Toggle this to set script's singleton status. Status will be set on script's OnAwake function")]
+        private ScriptBehavior scriptBehavior = ScriptBehavior.None;
+        public static ObjectPooler Instance { get; private set; }
         private List<PoolingComponent> poolingComponents;
+        #endregion
 
-        protected override void Awake()
+        #region Lifecycle Flow
+        private void Awake()
         {
-            base.Awake();
+            SetScriptBehaviour(scriptBehavior);
             
             //Init variables
             poolingComponents = new();
         }
+        #endregion
 
         #region Public calls
         public IPoolingPrefab GetPool(IPoolingPrefab poolingPrefab)
@@ -150,7 +154,7 @@ namespace com.Klazapp.Utility
                 }
             }
             
-            LogMessage.DebugError("No pooling component found");
+            Debug.LogError("No pooling component found");
             return -1;
         }
 
@@ -190,8 +194,30 @@ namespace com.Klazapp.Utility
                 }
             }
             
-            LogMessage.DebugError("Cant find parent pooling prefab");
+            Debug.LogError("Cant find parent pooling prefab");
             return (false, -1, -1);
+        }
+        #endregion
+        
+        #region Modules
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void SetScriptBehaviour(ScriptBehavior behavior)
+        {
+            if (behavior is not (ScriptBehavior.Singleton or ScriptBehavior.PersistentSingleton)) 
+                return;
+            
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+                
+            Instance = this;
+
+            if (behavior == ScriptBehavior.PersistentSingleton)
+            {
+                DontDestroyOnLoad(this.gameObject);
+            }
         }
         #endregion
     }
