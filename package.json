@@ -1,6 +1,6 @@
 {
   "name": "com.klazapp.pooling",
-  "displayName": "Unity Pooling",
+  "displayName": "Unity Pooling Private",
   "version": "1.0.0",
   "unity": "2022.3",
   "description": "Maximize your game's performance with Klazapp's Object Pooler, a powerful Unity tool designed to optimize object management by reusing instances rather than creating and destroying them. This package provides efficient object pooling with features like automatic pool expansion and customizable components, suitable for any Unity project aiming to enhance performance and manage resources effectively.",
